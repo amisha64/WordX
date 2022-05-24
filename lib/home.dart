@@ -17,17 +17,17 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(25.0),
         child: Column(
         children: <Widget>[
-        SizedBox(
+        const SizedBox(
           height: 50, // <-- SEE HERE
         ),
         Text(
           "Welcome",
                 style: GoogleFonts.macondo(
-                color: Color.fromARGB(255, 42, 84, 158),
+                color: const Color.fromARGB(255, 42, 84, 158),
                 fontSize: 50,
               ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         ElevatedButton(
@@ -36,31 +36,31 @@ class HomeScreen extends StatelessWidget {
           onPrimary: Colors.white
         ),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>GameScreen(0)));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const GameScreen()));
         },
         child: Text('New Game',
                 style: GoogleFonts.macondo(
                 fontSize: 25,
               ),),
         ),
-        SizedBox(
+        const SizedBox(
           height: 60,
         ),
         Container(
-          margin: EdgeInsets.all(10),
-          padding: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             border: Border.all(
-              color: Color.fromARGB(255, 42, 84, 158),
+              color: const Color.fromARGB(255, 42, 84, 158),
             ),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
             
           ),
           child:Text(
-          "\nHOW TO PLAY: \n1. Note the letters & its position given in the hint. \nEg: 3rd - r \n\n2.Find the relation of the hinted letter with third positioned word in pattern. \nEg: \'r\' comes second in Brian. \n\n3.Similarly find the letters from other words in pattern to get complete word! \n\nAND YOU WIN!!!\n",
+          "\nHOW TO PLAY: \n1. Note the letters & its position given in the hint. \nEg: 3rd - r \n\n2.Find the relation of the hinted letter with third positioned word in pattern. \nEg: 'r' comes second in Brian. \n\n3.Similarly find the letters from other words in pattern to get complete word! \n\nCAN YOU SCORE A PERFECT 100!!!\n",
           textAlign: TextAlign.start,
           style: GoogleFonts.macondo(
-                color: Color.fromARGB(255, 42, 84, 158),
+                color: const Color.fromARGB(255, 42, 84, 158),
                 fontSize: 15,
               ),
           )

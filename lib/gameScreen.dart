@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wordx/Screen2.dart';
+import 'package:wordx/gameEnd.dart';
 import 'package:wordx/win.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_background/animated_background.dart';
 
 
 class GameScreen extends StatefulWidget {
-  //const GameScreen({super.key});
-  final int score;
-  const GameScreen(this.score);
+  const GameScreen({super.key});
   @override
   _GameScreen createState() => _GameScreen();
 }
@@ -27,29 +26,88 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
     spawnMinSpeed: 30,
     spawnMinRadius: 7.0,
   );
-  var hints=["Hint: Three letter word ending with 'r'. Meaning: Belonging",
-  "Second",
-  "Third",
-  "Fourth",
-  "Fifth",
-  "Sixth",
-  "Seventh",
-  "Eighth",
-  "Ninth",
-  "Tenth"];
+  
+  String patt= "LOOK OUT BRIAN !";
+  String hint= "Three letter word ending with 'r'. Meaning: Belonging";
+  var finalscore=0;
 
-  var pattern = [
-    'Look out Brian!',
-    'second',
-    'third',
-    'fourth',
-    'fifth',
-    'sixth',
-    'seventh',
-    'eighth',
-    'ninth',
-    'tenth'
-   ];
+  void changeScore(){
+    setState(() {
+      finalscore+= 10;
+    });
+  }
+
+  void changePattern(int finalscore){
+    switch(finalscore) {
+      case 0: {
+      patt="LOOK OUT BRIAN!";
+      hint="Three letter word ending with 'r'. Meaning: Belonging";
+      }
+      break;
+
+      case 10: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 20: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 30: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 40: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 50: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 60: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 70: {
+      patt= "NOT";
+      hint="N";
+      }
+      break;
+
+      case 80: {
+      patt= "NOT";
+      hint="N";
+      }  
+      break;
+
+      case 90: {
+      patt= "NOT";
+      hint="N";
+      }     
+      break;
+
+      default: {
+       patt= "";
+       hint="";
+      }
+      break;
+      }
+  }
+
+  int i=0;
 
   var result = [
     'our',
@@ -63,8 +121,6 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
     'nin',
     'ten'
    ];
-
-  var finalscore=0;
 
   TextEditingController myController = TextEditingController();
 
@@ -89,9 +145,9 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
           Text(
-            "Pattern: Look out Brian!",
+            "Pattern: $patt",
                   style: GoogleFonts.macondo(
-                  color: Color.fromARGB(255, 42, 84, 158),
+                  color: const Color.fromARGB(255, 42, 84, 158),
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -100,16 +156,16 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
             textCapitalization: TextCapitalization.characters,
             controller: myController,
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               suffixIcon: IconButton(onPressed: myController.clear,
-                icon: Icon(Icons.clear)),
+                icon: const Icon(Icons.clear)),
               hintText: 'The word is...',
             ),
           ),
           Text(
-            "Hint: Three letter word ending with 'r'. Meaning: Belonging",
+            "Hint: $hint",
                   style: GoogleFonts.macondo(
-                  color: Color.fromARGB(255, 42, 84, 158),
+                  color: const Color.fromARGB(255, 42, 84, 158),
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
@@ -120,13 +176,17 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
             onPrimary: Colors.white
           ),
           onPressed: () {
-            if(myController.text.toString().toLowerCase()==result[0]){
+            if(myController.text.toString().toLowerCase()==result[i]){
               // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Win(score: score,)));
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Win()));
-              finalscore+=widget.score;
+              changeScore();
+              changePattern(finalscore);
+              i+=1;
+              myController.clear();
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Win()));
+            if(finalscore==100){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const gameEnd()));}
             }
             else{
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Screen2()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Screen2()));
             }
           },
           child: Text('Go!',
