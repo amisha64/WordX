@@ -148,7 +148,7 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
           Text(
-            "Pattern:\n $patt",
+            "Pattern:\n$patt",
                   style: GoogleFonts.macondo(
                   color: const Color.fromARGB(255, 42, 84, 158),
                   fontSize: 20,
@@ -166,7 +166,7 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
             ),
           ),
           Text(
-            "Hint:\n $hint",
+            "Hint:\n$hint",
                   style: GoogleFonts.macondo(
                   color: const Color.fromARGB(255, 42, 84, 158),
                   fontSize: 15,
