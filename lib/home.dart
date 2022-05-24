@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           height: 50, // <-- SEE HERE
         ),
         Text(
-          "Welcome",
+          "Welcome 💙",
                 style: GoogleFonts.macondo(
                 color: const Color.fromARGB(255, 42, 84, 158),
                 fontSize: 50,
@@ -54,18 +54,25 @@ class HomeScreen extends StatelessWidget {
               color: const Color.fromARGB(255, 42, 84, 158),
             ),
             borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+            boxShadow: const [BoxShadow(
+                  color: Color.fromARGB(46, 68, 137, 255),
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                  offset: Offset(3, 3)
+                ),],
             
           ),
           child:Text(
-          "\nHOW TO PLAY: \n1. Note the letters & its position given in the hint. \nEg: 3rd - r \n\n2.Find the relation of the hinted letter with third positioned word in pattern. \nEg: 'r' comes second in Brian. \n\n3.Similarly find the letters from other words in pattern to get complete word! \n\nCAN YOU SCORE A PERFECT 100!!!\n",
+          "\nHOW TO PLAY: \n1. Find letters from words in pattern to get answer. \nEg: Pattern: Solo Trip \nHint: Word starting with ' O '. A conjunction .\n\n2. The hints will help determine the relationship between the position of the letter in the pattern and the answer. \nEg: #O#O  #r#p \n\n3. Similarly find the other letters to get the correct answer! \nAnswer : OR\n\nCan you score a PERFECT-100 !!! \n",
           textAlign: TextAlign.start,
           style: GoogleFonts.macondo(
                 color: const Color.fromARGB(255, 42, 84, 158),
                 fontSize: 15,
+                //backgroundColor: Colors.blueAccent.withOpacity(0.2),
               ),
           )
         ),
-        
+        //1.Find letters from words in pattern to get answer. Eg: Pattern: Solo Trip  Hint: Word starting with ' O '. A conjunction . 2.The hints will help determine the relationship between the position of the letter in the pattern and the answer. Eg: s'O'l'O' trip  3. Similarly find the other letters to get the correct answer.
         ],
         ),
       ),

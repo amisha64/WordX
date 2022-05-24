@@ -1,9 +1,12 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:wordx/Screen2.dart';
 import 'package:wordx/gameEnd.dart';
 import 'package:wordx/win.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_background/animated_background.dart';
+//flushbar
+import 'package:another_flushbar/flushbar.dart';
 
 
 class GameScreen extends StatefulWidget {
@@ -27,8 +30,8 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
     spawnMinRadius: 7.0,
   );
   
-  String patt= "LOOK OUT BRIAN !";
-  String hint= "Three letter word ending with 'r'. Meaning: Belonging";
+  String patt= "Speedily, We sneaked.";
+  String hint= "3-letter word ending with ' N '. Used for writing.";
   var finalscore=0;
 
   void changeScore(){
@@ -40,62 +43,62 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
   void changePattern(int finalscore){
     switch(finalscore) {
       case 0: {
-      patt="LOOK OUT BRIAN!";
-      hint="Three letter word ending with 'r'. Meaning: Belonging";
+      patt="Speedily, We sneaked.";
+      hint="3-letter word ending with ' N '. Used for writing.";
       }
       break;
 
       case 10: {
-      patt= "NOT";
-      hint="N";
+      patt= "Who's your strength?";
+      hint="3-letter word beginning with ' O '. Similar to belonging.";
       }
       break;
 
       case 20: {
-      patt= "NOT";
-      hint="N";
+      patt= "Get over fences.";
+      hint="3-letter word with ' E ' in the middle. A number.";
       }
       break;
 
       case 30: {
-      patt= "NOT";
-      hint="N";
+      patt= "The pearl was adorable.";
+      hint="4-letter word ending with ' D '. A body part.";
       }
       break;
 
       case 40: {
-      patt= "NOT";
-      hint="N";
+      patt= "Up for battle, Noah?";
+      hint="A 4-letter word beginning with ' T '. A group.";
       }
       break;
 
       case 50: {
-      patt= "NOT";
-      hint="N";
+      patt= "Bring them out.";
+      hint="3-letter word ending with ' P '. A vessel.";
       }
       break;
 
       case 60: {
-      patt= "NOT";
-      hint="N";
+      patt= "Face the aftermath.";
+      hint="3-letter word with ' I ' in middle. Huge.";
       }
       break;
 
       case 70: {
-      patt= "NOT";
-      hint="N";
+      patt= "Cut in Oscar ads.";
+      hint="4-letter word beginning with ' V '. Poll.";
       }
       break;
 
       case 80: {
-      patt= "NOT";
-      hint="N";
+      patt= "Visible inhumanity among wrestlers.";
+      hint="4-letter word ending with ' E '. Footwear.";
       }  
       break;
 
       case 90: {
-      patt= "NOT";
-      hint="N";
+      patt= "Annoy hijackers slyly.";
+      hint="' I ' is the second last letter. Verb meaning blend.";
       }     
       break;
 
@@ -110,20 +113,20 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
   int i=0;
 
   var result = [
+    'pen',
     'our',
-    'sec',
-    'thi',
-    'fou',
-    'fif',
-    'six',
-    'sev',
-    'eig',
-    'nin',
-    'ten'
+    'ten',
+    'head',
+    'team',
+    'cup',
+    'big',
+    'vote',
+    'shoe',
+    'mix'
    ];
 
   TextEditingController myController = TextEditingController();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,7 +176,9 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
           ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.blueAccent,
-            onPrimary: Colors.white
+            onPrimary: Colors.white,
+            shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0)),
           ),
           onPressed: () {
             if(myController.text.toString().toLowerCase()==result[i]){
@@ -183,7 +188,35 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
               i+=1;
               myController.clear();
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Win()));
-            if(finalscore==100){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const gameEnd()));}
+
+            if(finalscore==30) {
+              Flushbar(title: 'New Level',
+              //message: 'LEVEL::2',
+              messageText: Text("LEVEL 2!", style: GoogleFonts.macondo(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                )),
+              backgroundGradient: const LinearGradient(colors: [Colors.blueAccent, Colors.lightBlue]),
+              margin: const EdgeInsets.all(8),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              duration: const Duration(seconds: 3),).show(context);
+            }
+            if(finalscore==60) {
+              Flushbar(title: 'New Level',
+              //message: 'LEVEL 3',
+              messageText: Text("LEVEL 3!", style: GoogleFonts.macondo(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                )),
+              backgroundGradient: const LinearGradient(colors: [Colors.blueAccent, Colors.lightBlue]),
+              margin: const EdgeInsets.all(8),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              duration: const Duration(seconds: 3), 
+              flushbarStyle:FlushbarStyle.FLOATING,).show(context);
+            }
+            if(finalscore==100){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const GameEnd()));}
             }
             else{
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Screen2()));
@@ -191,11 +224,11 @@ class _GameScreen extends State<GameScreen> with SingleTickerProviderStateMixin 
           },
           child: Text('Go!',
                   style: GoogleFonts.macondo(
-                  fontSize: 25,
+                  fontSize: 20,
                 ),),
         ),
           Text(
-            "Score: $finalscore.",
+            "Score: $finalscore",
             style: GoogleFonts.macondo(
             color: Colors.blueAccent,
             fontSize: 20,

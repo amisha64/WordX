@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,23 +24,26 @@ class _Screen2State extends State<Screen2> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
         Text(
-          "Oops! That's wrong",
+          "Oops! That's wrong 😥",
                 style: GoogleFonts.macondo(
-                color: Color.fromARGB(255, 42, 84, 158),
+                color: const Color.fromARGB(255, 42, 84, 158),
                 fontSize: 50,
               ),
         ),
+        Image.asset("assets/images/try.gif",),
         ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: Colors.blueAccent,
-          onPrimary: Colors.white
+          onPrimary: Colors.white,
+          shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0)),
         ),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomeScreen()));
         },
         child: Text('New Game',
                 style: GoogleFonts.macondo(
-                fontSize: 25,
+                fontSize: 20,
               ),),
         ),
         ],

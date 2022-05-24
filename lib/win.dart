@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class Win extends StatefulWidget {
   //final int score;
   // Win({required this.score});
-  const Win();
+  const Win({super.key});
   @override
   _Winner createState() => _Winner();
 }
@@ -31,12 +31,13 @@ class _Winner extends State<Win> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
         Text(
-          "Wohoo! That's right",
+          "Wohoo! That's right 🎉",
                 style: GoogleFonts.macondo(
                 color: Colors.blueAccent,
                 fontSize: 50,
               ),
         ),
+        Image.asset("assets/images/congo.gif",),
           // Text(
           //   //"Score: $widget.score.toString()",
           //   "Score: $finalscore",
@@ -48,7 +49,9 @@ class _Winner extends State<Win> {
         ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: Colors.blueAccent,
-          onPrimary: Colors.white
+          onPrimary: Colors.white,
+          shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0)),
         ),
         onPressed: () {
           //changeScore();
@@ -56,7 +59,7 @@ class _Winner extends State<Win> {
         },
         child: Text('Continue',
                 style: GoogleFonts.macondo(
-                fontSize: 25,
+                fontSize: 20,
               ),),
         ),
         ],

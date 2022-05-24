@@ -1,16 +1,15 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wordx/home.dart';
 
-class gameEnd extends StatefulWidget {
-  //final int score;
-  // Win({required this.score});
-  const gameEnd();
+class GameEnd extends StatefulWidget {
+  const GameEnd({super.key});
   @override
-  _gameEnd createState() => _gameEnd();
+  _GameEnd createState() => _GameEnd();
 }
 
-class _gameEnd extends State<gameEnd> {
+class _GameEnd extends State<GameEnd> {
 
   @override
   Widget build(BuildContext context) {

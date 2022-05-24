@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => HomeScreen())));
+            builder: (BuildContext context) => const HomeScreen())));
   }
 
   @override
