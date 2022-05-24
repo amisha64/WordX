@@ -26,9 +26,10 @@ class _GameEnd extends State<GameEnd> {
         children: <Widget>[
         Text(
           "Congratulations! You scored 100!",
+          textAlign: TextAlign.center,
                 style: GoogleFonts.macondo(
                 color: Colors.blueAccent,
-                fontSize: 50,
+                fontSize: 40,
               ),
         ),
         ElevatedButton(

@@ -32,9 +32,10 @@ class _Winner extends State<Win> {
         children: <Widget>[
         Text(
           "Wohoo! That's right 🎉",
+          textAlign: TextAlign.center,
                 style: GoogleFonts.macondo(
                 color: Colors.blueAccent,
-                fontSize: 50,
+                fontSize: 40,
               ),
         ),
         Image.asset("assets/images/congo.gif",),
