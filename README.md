@@ -1,5 +1,8 @@
 # wordx
 
+![wordx](https://user-images.githubusercontent.com/62694127/170237254-bc9534ec-498c-44c4-ab12-dd45b14c9f7b.png)
+
+
 A new Flutter project.
 
 ## Getting Started
